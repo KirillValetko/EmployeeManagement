@@ -12,9 +12,9 @@
                     configurator: options =>
                     {
                         options.SecretFilter = entry => entry.Name.StartsWith(
-                            $"{envName}__{appName}_");
-                        options.KeyGenerator = (entry, s) => s
-                            .Replace($"{envName}__{appName}_", string.Empty)
+                            $"{envName}_{appName}_");
+                        options.KeyGenerator = (_, s) => s
+                            .Replace($"{envName}_{appName}_", string.Empty)
                             .Replace("__", ":");
                         options.PollingInterval = TimeSpan.FromSeconds(15);
                     });
